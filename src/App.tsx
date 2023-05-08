@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import { ANIME, ITitle} from '@consumet/extensions'
 
 
@@ -35,9 +34,11 @@ function App() {
     getTopAiringAnime();
   }, [])
 
+  console.log(topAiring);
+
   return (
-    <div className="App">
-      <h1>Top Airing Anime</h1>
+    <div className="bg-cyan-900">
+      <h1 className='text-3xl font-bold underline'>Top Airing Anime</h1>
       {topAiring.map((anime) => (
         <ul>
           <li key={anime.id}>{anime.title}
