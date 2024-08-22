@@ -1,12 +1,11 @@
 import TopAiringAnime from "./components/TopAiringAnimes";
 import RecentEpisodes from "./components/RecentEpisodes";
+import { CarouselSpacing } from "./components/CarouselSpacing";
 
 function App() {
   return (
     <>
-      <div className="flex justify-center items-center">
-        <h1 className="text-lg">Eijinime</h1>
-      </div>
+      <h1 className="text-lg">Eijinime</h1>
       <TopAiringAnime />
     </>
   );

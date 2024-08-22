@@ -1,4 +1,0 @@
-const Card = (list: []) => {
-  return (
-  );
-};

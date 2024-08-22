@@ -10,7 +10,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "./ui/button";
 
-const TopAiringAnime: React.FC = () => {
+const TopAiringAnime = () => {
   const [animeList, setAnimeList] = useState<AnimeInfo[]>([]);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -60,7 +60,7 @@ const TopAiringAnime: React.FC = () => {
   };
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col items-center justify-between p-24 gap-10">
       <h1>Top Airing Anime</h1>
       <Carousel orientation="horizontal" setApi={setApi}>
         <CarouselContent className="-ml-2 md:-ml-4">
@@ -81,8 +81,8 @@ const TopAiringAnime: React.FC = () => {
           ))}
         </CarouselContent>
         <div className="flex gap-3">
-          <Button onClick={() => api?.scrollTo(current - 1)}>Left</Button>
-          <Button onClick={() => api?.scrollTo(current + 1)}>Right</Button>
+          <Button onClick={() => api?.scrollTo(current - 1)}>Previous</Button>
+          <Button onClick={() => api?.scrollTo(current + 1)}>Next</Button>
         </div>
       </Carousel>
     </main>
@@ -97,8 +97,8 @@ const TopAiringAnimeCard = (props: AnimeInfo) => {
         <img
           src={props.image}
           alt={props.title.toString()}
-          width="150"
-          height="180"
+          width="auto"
+          height="auto"
         />
         <p>Genres: {props.genres?.join(", ")}</p>
         <p>Episode: {props.episodeNumber}</p>
