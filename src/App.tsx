@@ -8,7 +8,6 @@ function App() {
         <h1 className="text-lg">Eijinime</h1>
       </div>
       <TopAiringAnime />
-      <RecentEpisodes />
     </>
   );
 }
