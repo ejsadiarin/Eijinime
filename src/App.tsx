@@ -1,55 +1,16 @@
-import { useEffect, useState } from 'react'
-import { ANIME, ITitle} from '@consumet/extensions'
-
-
-// react query ?
-type Anime = {
-  id: string,
-  title: string | ITitle,
-  image: string | undefined,
-  url: string | undefined,
-}
+import TopAiringAnime from "./components/TopAiringAnimes";
+import RecentEpisodes from "./components/RecentEpisodes";
 
 function App() {
-  const [topAiring, setTopAiring] = useState<Anime[]>([]);
-
-  const gogoAnime = new ANIME.Gogoanime();
-  
-  useEffect(() =>{
-    async function getTopAiringAnime() {
-      const response = await gogoAnime.fetchTopAiring();
-
-      const topAiringData = await Promise.all(response.results.map(async (obj) => {
-        return {
-        id: obj.id,
-        title: obj.title,
-        image: obj.image,
-        url: obj.url,
-        }
-      }))
-      setTopAiring(topAiringData);
-
-    }
-
-    getTopAiringAnime();
-  }, [])
-
-  console.log(topAiring);
-
   return (
-    <div className="bg-cyan-900">
-      <h1 className='text-3xl font-bold underline'>Top Airing Anime</h1>
-      {topAiring.map((anime) => (
-        <ul>
-          <li key={anime.id}>{anime.title}
-          <img src={anime.image} alt={anime.title} />
-          <a href={anime.url}>{anime.title}</a>
-          </li>
-        </ul>
-      ))}
-
-    </div>
+    <>
+      <div className="flex justify-center items-center">
+        <h1 className="text-lg">Eijinime</h1>
+      </div>
+      <TopAiringAnime />
+      <RecentEpisodes />
+    </>
   );
 }
 
-export default App
+export default App;
